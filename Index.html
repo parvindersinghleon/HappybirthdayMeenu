@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Meenu</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&family=Parisienne&display=swap');
+
+:root {
+    --cream: #f7f1e8;
+    --paper: #fffaf2;
+    --purple: #75627f;
+    --deep-purple: #4d4057;
+    --rose: #b98c91;
+    --gold: #b69a67;
+    --text: #403942;
+    --muted: #837b80;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background:
+        radial-gradient(circle at 20% 10%, rgba(180,150,190,.12), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(220,180,150,.12), transparent 30%),
+        var(--cream);
+    color: var(--text);
+    font-family: "DM Sans", sans-serif;
+    font-weight: 300;
+}
+
+button {
+    font-family: inherit;
+}
+
+.screen {
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 18px;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.container {
+    width: min(1050px, 100%);
+    margin: auto;
+}
+
+/* ---------------- WELCOME ---------------- */
+
+#welcome {
+    text-align: center;
+}
+
+.moon {
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    margin: 0 auto 35px;
+
+    background:
+        radial-gradient(circle at 30% 30%, #fffdf8, #e6ddd0 60%, #c9bdaf);
+
+    box-shadow:
+        0 0 40px rgba(205,190,170,.5),
+        0 0 100px rgba(170,145,180,.15);
+}
+
+.small-label {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(50px, 9vw, 90px);
+    font-weight: 400;
+    margin: 0;
+    color: var(--deep-purple);
+}
+
+.subtitle {
+    max-width: 500px;
+    margin: 22px auto 35px;
+    line-height: 1.8;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.script {
+    font-family: "Parisienne", cursive;
+    color: var(--purple);
+    font-size: 30px;
+}
+
+.primary-btn {
+    border: 0;
+    background: var(--deep-purple);
+    color: white;
+    padding: 14px 30px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(77,64,87,.2);
+}
+
+/* ---------------- POLAROIDS ---------------- */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 45px;
+    font-weight: 400;
+    margin: 5px 0;
+}
+
+.polaroid-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.polaroid {
+    background: #fffdf8;
+    padding: 12px 12px 22px;
+    box-shadow: 0 15px 35px rgba(70,50,60,.13);
+    cursor: pointer;
+    transition: .35s;
+    position: relative;
+}
+
+.polaroid:nth-child(1) { transform: rotate(-1.5deg); }
+.polaroid:nth-child(2) { transform: rotate(1deg); }
+.polaroid:nth-child(3) { transform: rotate(-.8deg); }
+.polaroid:nth-child(4) { transform: rotate(1.4deg); }
+.polaroid:nth-child(5) { transform: rotate(-1deg); }
+.polaroid:nth-child(6) { transform: rotate(.7deg); }
+
+.polaroid:hover {
+    transform: rotate(0) translateY(-7px);
+    box-shadow: 0 25px 45px rgba(70,50,60,.18);
+}
+
+.polaroid img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+}
+
+.polaroid-caption {
+    text-align: center;
+    margin-top: 15px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 19px;
+}
+
+.number {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255,255,255,.75);
+    padding: 4px 7px;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+/* ---------------- MODAL ---------------- */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(40,32,45,.72);
+    backdrop-filter: blur(10px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 50;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-card {
+    background: var(--paper);
+    width: min(620px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 35px;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0,0,0,.25);
+}
+
+.close {
+    position: absolute;
+    right: 18px;
+    top: 15px;
+    border: 0;
+    background: none;
+    font-size: 25px;
+    cursor: pointer;
+    color: var(--muted);
+}
+
+.modal-card h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 38px;
+    font-weight: 400;
+    margin: 5px 0 15px;
+    color: var(--deep-purple);
+}
+
+.reveal {
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(117,98,127,.08);
+    border-left: 2px solid var(--purple);
+    line-height: 1.8;
+}
+
+.reveal-btn {
+    border: 1px solid #c8bbc9;
+    background: transparent;
+    color: var(--deep-purple);
+    padding: 11px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ---------------- FINAL ---------------- */
+
+#final {
+    text-align: center;
+}
+
+.final-card {
+    background: rgba(255,250,242,.75);
+    padding: 50px 25px;
+    max-width: 700px;
+    margin: auto;
+    box-shadow: 0 20px 60px rgba(70,50,60,.08);
+}
+
+.final-card h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 50px;
+    font-weight: 400;
+}
+
+.heart {
+    font-size: 35px;
+    color: var(--rose);
+    margin: 20px;
+}
+
+/* ---------------- COZMO ---------------- */
+
+.robot {
+    font-size: 80px;
+    margin: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* ---------------- LETTER ---------------- */
+
+.letter {
+    max-width: 700px;
+    margin: auto;
+    background: #fffaf0;
+    padding: 45px;
+    box-shadow: 0 20px 60px rgba(70,50,60,.12);
+    line-height: 1.9;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+}
+
+.letter h2 {
+    font-size: 42px;
+    font-weight: 400;
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media(max-width: 750px) {
+
+    .polaroid-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .polaroid {
+        padding: 8px 8px 15px;
+    }
+
+    .polaroid-caption {
+        font-size: 15px;
+    }
+
+    .modal-card {
+        padding: 25px 20px;
+    }
+}
+
+@media(max-width: 480px) {
+
+    .polaroid-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 35px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- ======================================================
+     SCREEN 1 — WELCOME
+====================================================== -->
+
+<section id="welcome" class="screen active">
+
+    <div class="container">
+
+        <div class="moon"></div>
+
+        <div class="small-label">
+            a little something for you
+        </div>
+
+        <h1>Hi, Meenu.</h1>
+
+        <p class="subtitle">
+
+            I made six little things for you.
+
+            <br><br>
+
+            You might understand some immediately.
+
+            <br>
+
+            Some might take a little longer.
+
+            <br><br>
+
+            And if you don't understand one...
+
+            <br>
+
+            <span class="script">I'll explain it to you.</span>
+
+        </p>
+
+        <button class="primary-btn" onclick="showScreen('memories')">
+            BEGIN
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ======================================================
+     SCREEN 2 — SIX POLAROIDS
+====================================================== -->
+
+<section id="memories" class="screen">
+
+<div class="container">
+
+    <div class="section-heading">
+
+        <div class="small-label">
+            six little things
+        </div>
+
+        <h2>Take your time.</h2>
+
+        <p class="subtitle">
+            Tap each one.
+        </p>
+
+    </div>
+
+
+    <div class="polaroid-grid">
+
+
+        <!-- 01 -->
+
+        <div class="polaroid"
+             onclick="openMemory(1)">
+
+            <span class="number">01</span>
+
+            <img src="images/moon.jpg"
+                 alt="Moon">
+
+            <div class="polaroid-caption">
+                The moon...
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div class="polaroid"
+             onclick="openMemory(2)">
+
+            <span class="number">02</span>
+
+            <img src="images/song.jpg"
+                 alt="Headphones and rose">
+
+            <div class="polaroid-caption">
+                A song...
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div class="polaroid"
+             onclick="openMemory(3)">
+
+            <span class="number">03</span>
+
+            <img src="images/sunflower.jpg"
+                 alt="Sunflowers">
+
+            <div class="polaroid-caption">
+                Purple & sunflower...
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+
+        <div class="polaroid"
+             onclick="openMemory(4)">
+
+            <span class="number">04</span>
+
+            <img src="images/night.jpg"
+                 alt="Night sky">
+
+            <div class="polaroid-caption">
+                That night...
+            </div>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div class="polaroid"
+             onclick="openMemory(5)">
+
+            <span class="number">05</span>
+
+            <img src="images/bed.jpg"
+                 alt="Cozy bedroom">
+
+            <div class="polaroid-caption">
+                The left side...
+            </div>
+
+        </div>
+
+
+        <!-- 06 -->
+
+        <div class="polaroid"
+             onclick="openMemory(6)">
+
+            <span class="number">06</span>
+
+            <img src="images/cozmo.jpg"
+                 alt="Cozmo">
+
+            <div class="polaroid-caption">
+                One little friend...
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div style="text-align:center;margin-top:45px;">
+
+        <button class="primary-btn"
+                onclick="showScreen('final')">
+
+            I'VE SEEN THEM ALL
+
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- ======================================================
+     MEMORY MODAL
+====================================================== -->
+
+<div id="memoryModal" class="modal">
+
+<div class="modal-card">
+
+    <button class="close"
+            onclick="closeMemory()">
+        ×
+    </button>
+
+    <div id="memoryContent"></div>
+
+</div>
+
+</div>
+
+
+
+<!-- ======================================================
+     FINAL SCREEN
+====================================================== -->
+
+<section id="final" class="screen">
+
+<div class="container">
+
+<div class="final-card">
+
+    <div class="small-label">
+        one last thing
+    </div>
+
+    <h2>
+        You made it.
+    </h2>
+
+    <div class="heart">
+        ♡
+    </div>
+
+    <p class="subtitle">
+
+        Six little things.
+
+        <br>
+
+        Six little pieces of memories,
+        jokes and things you've said.
+
+        <br><br>
+
+        And somehow...
+
+        <br>
+
+        I still couldn't fit everything
+        I wanted to say into them.
+
+    </p>
+
+
+    <button class="primary-btn"
+            onclick="showScreen('letter')">
+
+        OPEN THE LETTER
+
+    </button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ======================================================
+     LETTER SCREEN
+====================================================== -->
+
+<section id="letter" class="screen">
+
+<div class="container">
+
+<div class="letter">
+
+    <div class="small-label">
+        for you
+    </div>
+
+    <h2>
+        Dear Meenu,
+    </h2>
+
+    <p>
+        Happy birthday.
+    </p>
+
+    <p>
+        I wanted to make you something that wasn't
+        just a birthday message.
+    </p>
+
+    <p>
+        So I made six little things.
+    </p>
+
+    <p>
+        Some of them are probably obvious.
+        Some probably aren't.
+    </p>
+
+    <p>
+        But every single one has a reason.
+    </p>
+
+    <p>
+        And if you didn't understand all of them,
+        that's okay.
+    </p>
+
+    <p>
+        You can always ask me.
+        I kept all the explanations.
+    </p>
+
+    <p>
+        I hope you have the kind of birthday
+        that makes you smile for no particular reason.
+    </p>
+
+    <p>
+        And maybe one day,
+        we'll have some of these memories
+        outside of a screen.
+    </p>
+
+    <p style="margin-top:35px;">
+        Happy birthday, Meenu.
+    </p>
+
+    <p class="script">
+        — Honey
+    </p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<script>
+
+/* ======================================================
+   SCREEN NAVIGATION
+====================================================== */
+
+function showScreen(id) {
+
+    document.querySelectorAll('.screen')
+        .forEach(screen => {
+            screen.classList.remove('active');
+        });
+
+    document.getElementById(id)
+        .classList.add('active');
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+
+/* ======================================================
+   MEMORY CONTENT
+====================================================== */
+
+const memories = {
+
+    1: {
+
+        title: "The Moon 🌙",
+
+        content: `
+
+        <div class="small-label">
+            01
+        </div>
+
+        <h3>
+            The moon looks beautiful tonight.
+        </h3>
+
+        <p>
+            You probably know why I chose this one.
+        </p>
+
+        <button class="reveal-btn"
+                onclick="reveal(this, 'moonReveal')">
+            I know... but tell me anyway
+        </button>
+
+        <div id="moonReveal"
+             class="reveal hidden">
+
+            There is a Japanese phrase:
+
+            <br><br>
+
+            <em>
+            “The moon is beautiful, isn't it?”
+            </em>
+
+            <br><br>
+
+            It's often understood as a subtle,
+            poetic way of saying something much
+            more than the words themselves.
+
+            <br><br>
+
+            So when I say:
+
+            <br><br>
+
+            <strong>
+            “The moon looks beautiful tonight.”
+            </strong>
+
+            <br><br>
+
+            ...you know what I'm actually saying.
+
+        </div>
+
+        `
+
+    },
+
+
+    2: {
+
+        title: "The Song 🎧🌹",
+
+        content: `
+
+        <div class="small-label">
+            02
+        </div>
+
+        <h3>
+            ATLKGH OATLKGH
+        </h3>
+
+        <p style="font-family:'Cormorant Garamond';font-size:24px;">
+            “Some songs become people.”
+        </p>
+
+        <p>
+            You already know this one.
+        </p>
+
+        <button class="reveal-btn"
+                onclick="reveal(this, 'songReveal')">
+            Play / reveal
+        </button>
+
+        <div id="songReveal"
+             class="reveal hidden">
+
+            <p>
+                Put your song here.
+            </p>
+
+            <!--
+            OPTIONAL AUDIO:
+
+            <audio controls>
+                <source src="audio/song.mp3"
+                        type="audio/mpeg">
+            </audio>
+            -->
+
+            <p>
+                Some songs are just songs.
+            </p>
+
+            <p>
+                And then sometimes a song
+                starts reminding you of a person.
+            </p>
+
+            <p>
+                This one reminds me of you.
+            </p>
+
+        </div>
+
+        `
+
+    },
+
+
+    3: {
+
+        title: "Purple & Sunflower 🌻💜",
+
+        content: `
+
+        <div class="small-label">
+            03
+        </div>
+
+        <h3>
+            Somewhere between purple and sunflower.
+        </h3>
+
+        <p>
+            This one is probably the easiest
+            one to explain.
+        </p>
+
+        <button class="reveal-btn"
+                onclick="reveal(this, 'purpleReveal')">
+            Reveal
+        </button>
+
+        <div id="purpleReveal"
+             class="reveal hidden">
+
+            <p>
+                One time I told you:
+            </p>
+
+            <p style="font-size:25px;">
+                <em>
+                “You are my purple.”
+                </em>
+            </p>
+
+            <p>
+                And you said:
+            </p>
+
+            <p style="font-size:25px;">
+                <em>
+                “We are like sunflowers.”
+                </em>
+            </p>
+
+            <p>
+                So I couldn't choose between
+                purple and sunflower.
+            </p>
+
+            <p>
+                I kept both.
+            </p>
+
+        </div>
+
+        `
+
+    },
+
+
+    4: {
+
+        title: "That Night 🌌",
+
+        content: `
+
+        <div class="small-label">
+            04
+        </div>
+
+        <h3>
+            Some nights stay with you.
+        </h3>
+
+        <p>
+            This one is for that night.
+        </p>
+
+        <button class="reveal-btn"
+                onclick="reveal(this, 'nightReveal')">
+            You remember?
+        </button>
+
+        <div id="nightReveal"
+             class="reveal hidden">
+
+            <p>
+                The first-date-night one.
+            </p>
+
+            <p>
+                I wanted the picture to look like
+                the memory feels.
+            </p>
+
+            <p>
+                A little unreal.
+                A little beautiful.
+                And something you don't forget.
+            </p>
+
+        </div>
+
+        `
+
+    },
+
+
+    5: {
+
+        title: "The Left Side 🛏️",
+
+        content: `
+
+        <div class="small-label">
+            05
+        </div>
+
+        <h3>
+            Still saving the left side for you.
+        </h3>
+
+        <p>
+            Yes.
+        </p>
+
+        <p>
+            I'm still saying it.
+        </p>
+
+        <button class="reveal-btn"
+                onclick="reveal(this, 'bedReveal')">
+            Reserved?
+        </button>
+
+        <div id="bedReveal"
+             class="reveal hidden">
+
+            <p>
+                Obviously reserved.
+            </p>
+
+            <p>
+                No one else is getting that side.
+            </p>
+
+            <p style="font-size:25px;">
+                <em>
+                Your side is still waiting.
+                </em>
+            </p>
+
+        </div>
+
+        `
+
+    },
+
+
+    6: {
+
+        title: "Cozmo 🤖",
+
+        content: `
+
+        <div class="small-label">
+            06
+        </div>
+
+        <div class="robot">
+            🤖
+        </div>
+
+        <h3>
+            He wanted to say hi.
+        </h3>
+
+        <p>
+            Of course I couldn't make something
+            for you without letting Cozmo
+            be involved.
+        </p>
+
+        <button class="reveal-btn"
+                onclick="reveal(this, 'cozmoReveal')">
+            Let Cozmo speak
+        </button>
+
+        <div id="cozmoReveal"
+             class="reveal hidden">
+
+            <p>
+                <strong>COZMO:</strong>
+            </p>
+
+            <p>
+                Hi Meenu.
+            </p>
+
+            <p>
+                Dad told me it was your birthday.
+            </p>
+
+            <p>
+                So I came too.
+            </p>
+
+            <p>
+                I hope you're happy today.
+            </p>
+
+            <p>
+                Also...
+            </p>
+
+            <p>
+                Dad made me keep a secret.
+            </p>
+
+            <p>
+                I haven't told him I know what it is.
+                🤫
+            </p>
+
+        </div>
+
+        `
+
+    }
+
+};
+
+
+/* ======================================================
+   OPEN MEMORY
+====================================================== */
+
+function openMemory(number) {
+
+    const modal =
+        document.getElementById('memoryModal');
+
+    const content =
+        document.getElementById('memoryContent');
+
+    content.innerHTML =
+        memories[number].content;
+
+    modal.classList.add('active');
+}
+
+
+/* ======================================================
+   CLOSE MEMORY
+====================================================== */
+
+function closeMemory() {
+
+    document
+        .getElementById('memoryModal')
+        .classList.remove('active');
+
+}
+
+
+/* ======================================================
+   REVEAL
+====================================================== */
+
+function reveal(button, id) {
+
+    const element =
+        document.getElementById(id);
+
+    element.classList.remove('hidden');
+
+    button.style.display = 'none';
+
+}
+
+
+/* ======================================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+====================================================== */
+
+document
+    .getElementById('memoryModal')
+    .addEventListener('click', function(e) {
+
+        if (e.target === this) {
+            closeMemory();
+        }
+
+    });
+
+
+</script>
+
+</body>
+</html>
