@@ -1,17 +1,11 @@
-```html
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>For Meenu ♡</title>
 
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&family=Parisienne&display=swap');
 
 :root {
@@ -35,7 +29,6 @@ html {
 
 body {
     margin: 0;
-
     background:
         radial-gradient(
             circle at 20% 10%,
@@ -48,7 +41,6 @@ body {
             transparent 30%
         ),
         var(--cream);
-
     color: var(--text);
     font-family: "DM Sans", sans-serif;
     font-weight: 300;
@@ -75,7 +67,6 @@ button {
     margin: auto;
 }
 
-
 /* ==================================================
    WELCOME
 ================================================== */
@@ -84,138 +75,168 @@ button {
     text-align: center;
 }
 
-
 /* ==================================================
-   BIRTHDAY CAKE
+   UPDATED BIRTHDAY CAKE
 ================================================== */
 
 .birthday-cake {
-    width: 105px;
-    height: 105px;
+    width: 140px;
+    height: 125px;
     margin: 0 auto 35px;
     position: relative;
 }
 
-/* Candle */
-.cake-candle {
-    position: absolute;
-    width: 8px;
-    height: 25px;
-    background: #ffffff;
-    border-radius: 3px;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0 0 12px rgba(255,255,255,.8);
-}
-
-/* Flame */
-.flame {
-    position: absolute;
-    width: 10px;
-    height: 14px;
-    background: #f3dfad;
-    border-radius: 50% 50% 50% 0;
-    transform: rotate(-45deg);
-    top: -11px;
-    left: -1px;
-    box-shadow: 0 0 12px rgba(243,223,173,.7);
-
-    animation: flicker 1.5s ease-in-out infinite;
-}
-
-@keyframes flicker {
-
-    0%, 100% {
-        transform: rotate(-45deg) scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: rotate(-45deg) scale(1.08);
-        opacity: .88;
-    }
-
-}
-
-/* Cake top icing */
-.cake-top {
-    position: absolute;
-    width: 65px;
-    height: 20px;
-    background: #ffffff;
-    border-radius: 50%;
-    left: 20px;
-    top: 31px;
-    box-shadow: 0 4px 12px rgba(80,65,80,.12);
-}
-
-/* Cake body */
-.cake-body {
-    position: absolute;
-    width: 65px;
-    height: 42px;
-    background: #fffdf9;
-    left: 20px;
-    top: 40px;
-    border-radius: 5px 5px 12px 12px;
-
-    box-shadow:
-        0 10px 25px rgba(70,50,60,.15);
-}
-
-/* Little icing drops */
-.cake-body::before {
-    content: "";
-    position: absolute;
-
-    width: 100%;
-    height: 12px;
-
-    top: -5px;
-
-    background:
-        radial-gradient(
-            circle at 10% 0,
-            #ffffff 7px,
-            transparent 8px
-        ),
-        radial-gradient(
-            circle at 30% 0,
-            #ffffff 7px,
-            transparent 8px
-        ),
-        radial-gradient(
-            circle at 50% 0,
-            #ffffff 7px,
-            transparent 8px
-        ),
-        radial-gradient(
-            circle at 70% 0,
-            #ffffff 7px,
-            transparent 8px
-        ),
-        radial-gradient(
-            circle at 90% 0,
-            #ffffff 7px,
-            transparent 8px
-        );
-}
-
-/* Cake plate */
+/* Plate */
 .cake-plate {
     position: absolute;
-    width: 82px;
-    height: 10px;
-    background: #ffffff;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 12px;
+    background: linear-gradient(135deg, #ffffff, #ede7de);
     border-radius: 50%;
-    left: 11px;
-    top: 79px;
-
-    box-shadow:
-        0 8px 20px rgba(70,50,60,.12);
+    box-shadow: 
+        0 8px 18px rgba(70, 50, 60, 0.12),
+        inset 0 -2px 0 var(--gold);
 }
 
+/* Cake Tiers Base */
+.cake-layer {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 8px 8px 12px 12px;
+}
+
+/* Bottom Tier */
+.bottom-tier {
+    bottom: 8px;
+    width: 98px;
+    height: 38px;
+    background: linear-gradient(to bottom, #ffffff, #f7eae8);
+    box-shadow: 0 4px 12px rgba(70, 50, 60, 0.08);
+    border-top: 3px solid var(--rose);
+}
+
+/* Top Tier */
+.top-tier {
+    bottom: 43px;
+    width: 74px;
+    height: 34px;
+    background: linear-gradient(to bottom, #ffffff, #fbf5f0);
+    box-shadow: 0 4px 10px rgba(70, 50, 60, 0.06);
+}
+
+/* Scalloped Icing Drips */
+.icing-drips {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 10px;
+    background: #ffffff;
+    border-radius: 8px 8px 0 0;
+}
+
+.icing-drips::after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background:
+        radial-gradient(circle at 10% 0, #ffffff 5px, transparent 6px),
+        radial-gradient(circle at 30% 0, #ffffff 5px, transparent 6px),
+        radial-gradient(circle at 50% 0, #ffffff 5px, transparent 6px),
+        radial-gradient(circle at 70% 0, #ffffff 5px, transparent 6px),
+        radial-gradient(circle at 90% 0, #ffffff 5px, transparent 6px);
+}
+
+/* Pearl / Topping Accents */
+.cake-berries {
+    position: absolute;
+    top: -2px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 6px;
+}
+
+.cake-berries span {
+    width: 5px;
+    height: 5px;
+    background: var(--rose);
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Candle & Wick */
+.candle {
+    position: absolute;
+    bottom: 74px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 26px;
+    background: repeating-linear-gradient(
+        45deg,
+        var(--rose),
+        var(--rose) 4px,
+        #ffffff 4px,
+        #ffffff 8px
+    );
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.candle::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 5px;
+    background: var(--deep-purple);
+}
+
+/* Animated Flame & Ambient Glow */
+.flame {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 16px;
+    background: radial-gradient(ellipse at bottom, #fff6c5 0%, #ffb74d 60%, transparent 100%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: sway 1.8s ease-in-out infinite alternate;
+    box-shadow: 0 0 10px rgba(255, 183, 77, 0.8);
+}
+
+.flame-glow {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, rgba(255, 210, 120, 0.35) 0%, rgba(255, 210, 120, 0) 70%);
+    border-radius: 50%;
+    animation: pulseGlow 1.8s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes sway {
+    0% { transform: translateX(-50%) rotate(-3deg) scale(0.96); }
+    100% { transform: translateX(-50%) rotate(3deg) scale(1.04); }
+}
+
+@keyframes pulseGlow {
+    0% { opacity: 0.5; transform: translateX(-50%) scale(0.88); }
+    100% { opacity: 1; transform: translateX(-50%) scale(1.15); }
+}
 
 .small-label {
     letter-spacing: 4px;
@@ -264,7 +285,6 @@ h1 {
     box-shadow: 0 10px 30px rgba(77,64,87,.2);
 }
 
-
 /* ==================================================
    POLAROIDS
 ================================================== */
@@ -290,44 +310,22 @@ h1 {
 .polaroid {
     background: #fffdf8;
     padding: 12px 12px 22px;
-
-    box-shadow:
-        0 15px 35px rgba(70,50,60,.13);
-
+    box-shadow: 0 15px 35px rgba(70,50,60,.13);
     cursor: pointer;
     transition: .35s;
     position: relative;
 }
 
-.polaroid:nth-child(1) {
-    transform: rotate(-1.5deg);
-}
-
-.polaroid:nth-child(2) {
-    transform: rotate(1deg);
-}
-
-.polaroid:nth-child(3) {
-    transform: rotate(-.8deg);
-}
-
-.polaroid:nth-child(4) {
-    transform: rotate(1.4deg);
-}
-
-.polaroid:nth-child(5) {
-    transform: rotate(-1deg);
-}
-
-.polaroid:nth-child(6) {
-    transform: rotate(.7deg);
-}
+.polaroid:nth-child(1) { transform: rotate(-1.5deg); }
+.polaroid:nth-child(2) { transform: rotate(1deg); }
+.polaroid:nth-child(3) { transform: rotate(-.8deg); }
+.polaroid:nth-child(4) { transform: rotate(1.4deg); }
+.polaroid:nth-child(5) { transform: rotate(-1deg); }
+.polaroid:nth-child(6) { transform: rotate(.7deg); }
 
 .polaroid:hover {
     transform: rotate(0) translateY(-7px);
-
-    box-shadow:
-        0 25px 45px rgba(70,50,60,.18);
+    box-shadow: 0 25px 45px rgba(70,50,60,.18);
 }
 
 .polaroid img {
@@ -340,25 +338,19 @@ h1 {
 .polaroid-caption {
     text-align: center;
     margin-top: 15px;
-
     font-family: "Cormorant Garamond", serif;
     font-size: 19px;
 }
 
 .number {
     position: absolute;
-
     top: 20px;
     left: 20px;
-
     background: rgba(255,255,255,.75);
-
     padding: 4px 7px;
-
     font-size: 9px;
     letter-spacing: 1px;
 }
-
 
 /* ==================================================
    MODAL
@@ -367,19 +359,12 @@ h1 {
 .modal {
     position: fixed;
     inset: 0;
-
-    background:
-        rgba(40,32,45,.72);
-
+    background: rgba(40,32,45,.72);
     backdrop-filter: blur(10px);
-
     display: none;
-
     align-items: center;
     justify-content: center;
-
     padding: 20px;
-
     z-index: 50;
 }
 
@@ -389,89 +374,54 @@ h1 {
 
 .modal-card {
     background: var(--paper);
-
     width: min(620px, 100%);
     max-height: 90vh;
-
     overflow-y: auto;
-
     padding: 35px;
-
     border-radius: 5px;
-
     position: relative;
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.25);
+    box-shadow: 0 30px 80px rgba(0,0,0,.25);
 }
 
 .close {
     position: absolute;
-
     right: 18px;
     top: 15px;
-
     border: 0;
-
     background: none;
-
     font-size: 25px;
-
     cursor: pointer;
-
     color: var(--muted);
 }
 
 .modal-card h3 {
     font-family: "Cormorant Garamond", serif;
-
     font-size: 38px;
-
     font-weight: 400;
-
     margin: 5px 0 15px;
-
     color: var(--deep-purple);
 }
 
 .reveal {
     margin-top: 25px;
-
     padding: 20px;
-
-    background:
-        rgba(117,98,127,.08);
-
-    border-left:
-        2px solid var(--purple);
-
+    background: rgba(117,98,127,.08);
+    border-left: 2px solid var(--purple);
     line-height: 1.8;
 }
 
 .reveal-btn {
-    border:
-        1px solid #c8bbc9;
-
-    background:
-        transparent;
-
-    color:
-        var(--deep-purple);
-
-    padding:
-        11px 20px;
-
-    border-radius:
-        30px;
-
-    cursor:
-        pointer;
+    border: 1px solid #c8bbc9;
+    background: transparent;
+    color: var(--deep-purple);
+    padding: 11px 20px;
+    border-radius: 30px;
+    cursor: pointer;
 }
 
 .hidden {
     display: none;
 }
-
 
 /* ==================================================
    SONG PLAYER
@@ -487,7 +437,6 @@ h1 {
     display: block;
 }
 
-
 /* ==================================================
    FINAL
 ================================================== */
@@ -497,461 +446,245 @@ h1 {
 }
 
 .final-card {
-    background:
-        rgba(255,250,242,.75);
-
-    padding:
-        50px 25px;
-
-    max-width:
-        700px;
-
-    margin:
-        auto;
-
-    box-shadow:
-        0 20px 60px rgba(70,50,60,.08);
+    background: rgba(255,250,242,.75);
+    padding: 50px 25px;
+    max-width: 700px;
+    margin: auto;
+    box-shadow: 0 20px 60px rgba(70,50,60,.08);
 }
 
 .final-card h2 {
-    font-family:
-        "Cormorant Garamond", serif;
-
-    font-size:
-        50px;
-
-    font-weight:
-        400;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 50px;
+    font-weight: 400;
 }
 
 .heart {
-    font-size:
-        35px;
-
-    color:
-        var(--rose);
-
-    margin:
-        20px;
+    font-size: 35px;
+    color: var(--rose);
+    margin: 20px;
 }
-
 
 /* ==================================================
    COZMO
 ================================================== */
 
 .robot {
-    font-size:
-        80px;
-
-    margin:
-        10px;
-
-    animation:
-        float 3s ease-in-out infinite;
+    font-size: 80px;
+    margin: 10px;
+    animation: float 3s ease-in-out infinite;
 }
 
 @keyframes float {
-
-    0%,100% {
-        transform:
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            translateY(-8px);
-    }
-
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
 }
-
 
 /* ==================================================
    LETTER
 ================================================== */
 
 .letter {
-    max-width:
-        700px;
-
-    margin:
-        auto;
-
-    background:
-        #fffaf0;
-
-    padding:
-        45px;
-
-    box-shadow:
-        0 20px 60px rgba(70,50,60,.12);
-
-    line-height:
-        1.9;
-
-    font-family:
-        "Cormorant Garamond", serif;
-
-    font-size:
-        20px;
+    max-width: 700px;
+    margin: auto;
+    background: #fffaf0;
+    padding: 45px;
+    box-shadow: 0 20px 60px rgba(70,50,60,.12);
+    line-height: 1.9;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
 }
 
 .letter h2 {
-    font-size:
-        42px;
-
-    font-weight:
-        400;
+    font-size: 42px;
+    font-weight: 400;
 }
-
 
 /* ==================================================
    MOBILE
 ================================================== */
 
 @media(max-width:750px) {
-
     .polaroid-grid {
-        grid-template-columns:
-            repeat(2,1fr);
-
-        gap:
-            15px;
+        grid-template-columns: repeat(2,1fr);
+        gap: 15px;
     }
-
     .polaroid {
-        padding:
-            8px 8px 15px;
+        padding: 8px 8px 15px;
     }
-
     .polaroid-caption {
-        font-size:
-            15px;
+        font-size: 15px;
     }
-
     .modal-card {
-        padding:
-            25px 20px;
+        padding: 25px 20px;
     }
-
 }
 
 @media(max-width:480px) {
-
     .polaroid-grid {
-        grid-template-columns:
-            1fr 1fr;
+        grid-template-columns: 1fr 1fr;
     }
-
     .section-heading h2 {
-        font-size:
-            35px;
+        font-size: 35px;
     }
-
 }
-
 </style>
-
 </head>
 
-
 <body>
-
 
 <!-- ==================================================
      WELCOME
 ================================================== -->
 
-<section
-    id="welcome"
-    class="screen active">
-
+<section id="welcome" class="screen active">
     <div class="container">
 
-
-        <!-- Birthday Cake -->
-
+        <!-- Updated Birthday Cake -->
         <div class="birthday-cake">
-
-            <div class="cake-candle">
+            <div class="cake-plate"></div>
+            
+            <!-- Bottom Tier -->
+            <div class="cake-layer bottom-tier"></div>
+            
+            <!-- Top Tier -->
+            <div class="cake-layer top-tier">
+                <div class="icing-drips"></div>
+                <div class="cake-berries">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            
+            <!-- Candle & Flame -->
+            <div class="candle">
+                <div class="flame-glow"></div>
                 <div class="flame"></div>
             </div>
-
-            <div class="cake-top"></div>
-
-            <div class="cake-body"></div>
-
-            <div class="cake-plate"></div>
-
         </div>
-
 
         <div class="small-label">
             a little something for you
         </div>
 
-
         <h1>
             Hi, Meenu.
         </h1>
 
-
         <p class="subtitle">
-
             I made six little things for you.
-
             <br><br>
-
             You might understand some immediately.
-
             <br>
-
             Some might take a little longer.
-
             <br><br>
-
             And if you don't understand one...
-
             <br>
-
             <span class="script">
                 I'll explain it to you.
             </span>
-
         </p>
 
-
-        <button
-            class="primary-btn"
-            onclick="showScreen('memories')">
-
+        <button class="primary-btn" onclick="showScreen('memories')">
             BEGIN
-
         </button>
 
     </div>
-
 </section>
-
 
 <!-- ==================================================
      SIX POLAROIDS
 ================================================== -->
 
-<section
-    id="memories"
-    class="screen">
-
+<section id="memories" class="screen">
 <div class="container">
 
-
     <div class="section-heading">
-
         <div class="small-label">
             six little things
         </div>
-
         <h2>
             Take your time.
         </h2>
-
         <p class="subtitle">
             Tap each one.
         </p>
-
     </div>
-
 
     <div class="polaroid-grid">
 
-
         <!-- 01 MOON -->
-
-        <div
-            class="polaroid"
-            onclick="openMemory(1)">
-
-            <span class="number">
-                01
-            </span>
-
-            <img
-                src="images/moon.jpg.png"
-                alt="Moon">
-
-            <div class="polaroid-caption">
-                The moon...
-            </div>
-
+        <div class="polaroid" onclick="openMemory(1)">
+            <span class="number">01</span>
+            <img src="images/moon.jpg.png" alt="Moon">
+            <div class="polaroid-caption">The moon...</div>
         </div>
-
 
         <!-- 02 SONG -->
-
-        <div
-            class="polaroid"
-            onclick="openMemory(2)">
-
-            <span class="number">
-                02
-            </span>
-
-            <img
-                src="images/song.jpg.png"
-                alt="Headphones and rose">
-
-            <div class="polaroid-caption">
-                A song...
-            </div>
-
+        <div class="polaroid" onclick="openMemory(2)">
+            <span class="number">02</span>
+            <img src="images/song.jpg.png" alt="Headphones and rose">
+            <div class="polaroid-caption">A song...</div>
         </div>
-
 
         <!-- 03 SUNFLOWER -->
-
-        <div
-            class="polaroid"
-            onclick="openMemory(3)">
-
-            <span class="number">
-                03
-            </span>
-
-            <img
-                src="images/sunflower.jpg.png"
-                alt="Sunflowers">
-
-            <div class="polaroid-caption">
-                Purple & sunflower...
-            </div>
-
+        <div class="polaroid" onclick="openMemory(3)">
+            <span class="number">03</span>
+            <img src="images/sunflower.jpg.png" alt="Sunflowers">
+            <div class="polaroid-caption">Purple & sunflower...</div>
         </div>
-
 
         <!-- 04 NIGHT -->
-
-        <div
-            class="polaroid"
-            onclick="openMemory(4)">
-
-            <span class="number">
-                04
-            </span>
-
-            <img
-                src="images/night.jpg.png"
-                alt="Night sky">
-
-            <div class="polaroid-caption">
-                That night...
-            </div>
-
+        <div class="polaroid" onclick="openMemory(4)">
+            <span class="number">04</span>
+            <img src="images/night.jpg.png" alt="Night sky">
+            <div class="polaroid-caption">That night...</div>
         </div>
-
 
         <!-- 05 BED -->
-
-        <div
-            class="polaroid"
-            onclick="openMemory(5)">
-
-            <span class="number">
-                05
-            </span>
-
-            <img
-                src="images/bed.jpg.png"
-                alt="Cozy bedroom">
-
-            <div class="polaroid-caption">
-                The left side...
-            </div>
-
+        <div class="polaroid" onclick="openMemory(5)">
+            <span class="number">05</span>
+            <img src="images/bed.jpg.png" alt="Cozy bedroom">
+            <div class="polaroid-caption">The left side...</div>
         </div>
-
 
         <!-- 06 COZMO -->
-
-        <div
-            class="polaroid"
-            onclick="openMemory(6)">
-
-            <span class="number">
-                06
-            </span>
-
-            <img
-                src="images/cozmo.jpg.png"
-                alt="Cozmo">
-
-            <div class="polaroid-caption">
-                One little friend...
-            </div>
-
+        <div class="polaroid" onclick="openMemory(6)">
+            <span class="number">06</span>
+            <img src="images/cozmo.jpg.png" alt="Cozmo">
+            <div class="polaroid-caption">One little friend...</div>
         </div>
-
 
     </div>
 
-
-    <div
-        style="
-        text-align:center;
-        margin-top:45px;
-        ">
-
-        <button
-            class="primary-btn"
-            onclick="showScreen('final')">
-
+    <div style="text-align:center; margin-top:45px;">
+        <button class="primary-btn" onclick="showScreen('final')">
             I'VE SEEN THEM ALL
-
         </button>
-
     </div>
 
 </div>
-
 </section>
-
 
 <!-- ==================================================
      MEMORY POPUP
 ================================================== -->
 
-<div
-    id="memoryModal"
-    class="modal">
-
+<div id="memoryModal" class="modal">
     <div class="modal-card">
-
-        <button
-            class="close"
-            onclick="closeMemory()">
-
-            ×
-
-        </button>
-
-        <div
-            id="memoryContent">
-        </div>
-
+        <button class="close" onclick="closeMemory()">×</button>
+        <div id="memoryContent"></div>
     </div>
-
 </div>
-
 
 <!-- ==================================================
      FINAL
 ================================================== -->
 
-<section
-    id="final"
-    class="screen">
-
+<section id="final" class="screen">
 <div class="container">
-
 <div class="final-card">
 
     <div class="small-label">
@@ -967,50 +700,29 @@ h1 {
     </div>
 
     <p class="subtitle">
-
         Six little things.
-
         <br>
-
-        Six little pieces of memories,
-        jokes and things you've said.
-
+        Six little pieces of memories, jokes and things you've said.
         <br><br>
-
         And somehow...
-
         <br>
-
-        I still couldn't fit everything
-        I wanted to say into them.
-
+        I still couldn't fit everything I wanted to say into them.
     </p>
 
-    <button
-        class="primary-btn"
-        onclick="showScreen('letter')">
-
+    <button class="primary-btn" onclick="showScreen('letter')">
         OPEN THE LETTER
-
     </button>
 
 </div>
-
 </div>
-
 </section>
-
 
 <!-- ==================================================
      LETTER
 ================================================== -->
 
-<section
-    id="letter"
-    class="screen">
-
+<section id="letter" class="screen">
 <div class="container">
-
 <div class="letter">
 
     <div class="small-label">
@@ -1026,8 +738,7 @@ h1 {
     </p>
 
     <p>
-        I wanted to make you something
-        that wasn't just a birthday message.
+        I wanted to make you something that wasn't just a birthday message.
     </p>
 
     <p>
@@ -1035,8 +746,7 @@ h1 {
     </p>
 
     <p>
-        Some of them are probably obvious.
-        Some probably aren't.
+        Some of them are probably obvious. Some probably aren't.
     </p>
 
     <p>
@@ -1044,24 +754,19 @@ h1 {
     </p>
 
     <p>
-        And if you didn't understand all of them,
-        that's okay.
+        And if you didn't understand all of them, that's okay.
     </p>
 
     <p>
-        You can always ask me.
-        I kept all the explanations.
+        You can always ask me. I kept all the explanations.
     </p>
 
     <p>
-        I hope you have the kind of birthday
-        that makes you smile for no particular reason.
+        I hope you have the kind of birthday that makes you smile for no particular reason.
     </p>
 
     <p>
-        And maybe one day,
-        we'll have some of these memories
-        outside of a screen.
+        And maybe one day, we'll have some of these memories outside of a screen.
     </p>
 
     <p style="margin-top:35px;">
@@ -1073,40 +778,27 @@ h1 {
     </p>
 
 </div>
-
 </div>
-
 </section>
 
-
 <script>
-
 
 /* ==================================================
    SCREEN NAVIGATION
 ================================================== */
 
 function showScreen(id) {
+    document.querySelectorAll('.screen').forEach(screen => {
+        screen.classList.remove('active');
+    });
 
-    document
-        .querySelectorAll('.screen')
-        .forEach(screen => {
-
-            screen.classList.remove('active');
-
-        });
-
-    document
-        .getElementById(id)
-        .classList.add('active');
+    document.getElementById(id).classList.add('active');
 
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
-
 }
-
 
 /* ==================================================
    MEMORY DATA
@@ -1114,530 +806,199 @@ function showScreen(id) {
 
 const memories = {
 
-
     /* ==================================================
        01 — MOON
     ================================================== */
-
     1: {
-
         content: `
-
-        <div class="small-label">
-            01
-        </div>
-
-        <h3>
-            The Moon 🌙
-        </h3>
-
-        <p>
-            You probably know why I chose this one.
-        </p>
-
-        <button
-            class="reveal-btn"
-            onclick="reveal(this,'moonReveal')">
-
+        <div class="small-label">01</div>
+        <h3>The Moon 🌙</h3>
+        <p>You probably know why I chose this one.</p>
+        <button class="reveal-btn" onclick="reveal(this,'moonReveal')">
             I know... but tell me anyway
-
         </button>
-
-        <div
-            id="moonReveal"
-            class="reveal hidden">
-
+        <div id="moonReveal" class="reveal hidden">
             There is a famous Japanese phrase:
-
             <br><br>
-
-            <em>
-            "The moon is beautiful, isn't it?"
-            </em>
-
+            <em>"The moon is beautiful, isn't it?"</em>
             <br><br>
-
-            It can be understood as a subtle,
-            poetic way of expressing something
-            much deeper.
-
+            It can be understood as a subtle, poetic way of expressing something much deeper.
             <br><br>
-
             So when I say:
-
             <br><br>
-
-            <strong>
-            "The moon looks beautiful tonight."
-            </strong>
-
+            <strong>"The moon looks beautiful tonight."</strong>
             <br><br>
-
             ...you know what I'm actually saying.
-
         </div>
-
         `
-
     },
-
 
     /* ==================================================
        02 — SONG
     ================================================== */
-
     2: {
-
         content: `
-
-        <div class="small-label">
-            02
-        </div>
-
-        <h3>
-            The Song 🎧🌹
-        </h3>
-
-        <p
-            style="
-            font-family:'Cormorant Garamond';
-            font-size:24px;
-            ">
-
-            ATLKGH OATLKGH
-
-        </p>
-
-        <p
-            style="
-            font-family:'Cormorant Garamond';
-            font-size:24px;
-            ">
-
-            "Some songs become people."
-
-        </p>
-
-        <p>
-            You already know this one.
-        </p>
-
-
-        <button
-            class="reveal-btn"
-            onclick="reveal(this,'songReveal')">
-
+        <div class="small-label">02</div>
+        <h3>The Song 🎧🌹</h3>
+        <p style="font-family:'Cormorant Garamond'; font-size:24px;">ATLKGH OATLKGH</p>
+        <p style="font-family:'Cormorant Garamond'; font-size:24px;">"Some songs become people."</p>
+        <p>You already know this one.</p>
+        <button class="reveal-btn" onclick="reveal(this,'songReveal')">
             Play / reveal
-
         </button>
-
-
-        <div
-            id="songReveal"
-            class="reveal hidden">
-
-            <p>
-                Some songs are just songs.
-            </p>
-
-            <p>
-                And then sometimes a song
-                starts reminding you of a person.
-            </p>
-
-            <p>
-                This one reminds me of you.
-            </p>
-
-
-            <!-- SONG -->
-
+        <div id="songReveal" class="reveal hidden">
+            <p>Some songs are just songs.</p>
+            <p>And then sometimes a song starts reminding you of a person.</p>
+            <p>This one reminds me of you.</p>
             <div class="song-player">
-
-                <audio
-                    controls
-                    preload="metadata">
-
-                    <source
-                        src="audio/song.mp3.mpeg"
-                        type="audio/mpeg">
-
+                <audio controls preload="metadata">
+                    <source src="audio/song.mp3.mpeg" type="audio/mpeg">
                     Your browser does not support audio playback.
-
                 </audio>
-
             </div>
-
         </div>
-
         `
-
     },
-
 
     /* ==================================================
        03 — PURPLE & SUNFLOWER
     ================================================== */
-
     3: {
-
         content: `
-
-        <div class="small-label">
-            03
-        </div>
-
-        <h3>
-            Purple & Sunflower 🌻💜
-        </h3>
-
-        <p>
-            This one is probably the easiest
-            one to explain.
-        </p>
-
-        <button
-            class="reveal-btn"
-            onclick="reveal(this,'purpleReveal')">
-
+        <div class="small-label">03</div>
+        <h3>Purple & Sunflower 🌻💜</h3>
+        <p>This one is probably the easiest one to explain.</p>
+        <button class="reveal-btn" onclick="reveal(this,'purpleReveal')">
             Reveal
-
         </button>
-
-        <div
-            id="purpleReveal"
-            class="reveal hidden">
-
-            <p>
-                One time I told you:
-            </p>
-
-            <p style="font-size:25px;">
-
-                <em>
-                "You are my purple."
-                </em>
-
-            </p>
-
-            <p>
-                And you said:
-            </p>
-
-            <p style="font-size:25px;">
-
-                <em>
-                "We are like sunflowers."
-                </em>
-
-            </p>
-
-            <p>
-                So I couldn't choose between
-                purple and sunflower.
-            </p>
-
-            <p>
-                I kept both.
-            </p>
-
+        <div id="purpleReveal" class="reveal hidden">
+            <p>One time I told you:</p>
+            <p style="font-size:25px;"><em>"You are my purple."</em></p>
+            <p>And you said:</p>
+            <p style="font-size:25px;"><em>"We are like sunflowers."</em></p>
+            <p>So I couldn't choose between purple and sunflower.</p>
+            <p>I kept both.</p>
         </div>
-
         `
-
     },
-
 
     /* ==================================================
        04 — NIGHT
     ================================================== */
-
     4: {
-
         content: `
-
-        <div class="small-label">
-            04
-        </div>
-
-        <h3>
-            That Night 🌌
-        </h3>
-
-        <p>
-            Some nights stay with you.
-        </p>
-
-        <p>
-            This one is for that night.
-        </p>
-
-        <button
-            class="reveal-btn"
-            onclick="reveal(this,'nightReveal')">
-
+        <div class="small-label">04</div>
+        <h3>That Night 🌌</h3>
+        <p>Some nights stay with you.</p>
+        <p>This one is for that night.</p>
+        <button class="reveal-btn" onclick="reveal(this,'nightReveal')">
             You remember?
-
         </button>
-
-        <div
-            id="nightReveal"
-            class="reveal hidden">
-
-            <p>
-                The first-date-night one.
-            </p>
-
-            <p>
-                I wanted the picture to look
-                like the memory feels.
-            </p>
-
-            <p>
-                A little unreal.
-                A little beautiful.
-                And something you don't forget.
-            </p>
-
+        <div id="nightReveal" class="reveal hidden">
+            <p>The first-date-night one.</p>
+            <p>I wanted the picture to look like the memory feels.</p>
+            <p>A little unreal. A little beautiful. And something you don't forget.</p>
         </div>
-
         `
-
     },
-
 
     /* ==================================================
        05 — BED
     ================================================== */
-
     5: {
-
         content: `
-
-        <div class="small-label">
-            05
-        </div>
-
-        <h3>
-            The Left Side 🛏️
-        </h3>
-
-        <p>
-            Still saving the left side for you.
-        </p>
-
-        <p>
-            Yes.
-        </p>
-
-        <p>
-            I'm still saying it.
-        </p>
-
-        <button
-            class="reveal-btn"
-            onclick="reveal(this,'bedReveal')">
-
+        <div class="small-label">05</div>
+        <h3>The Left Side 🛏️</h3>
+        <p>Still saving the left side for you.</p>
+        <p>Yes.</p>
+        <p>I'm still saying it.</p>
+        <button class="reveal-btn" onclick="reveal(this,'bedReveal')">
             Reserved?
-
         </button>
-
-        <div
-            id="bedReveal"
-            class="reveal hidden">
-
-            <p>
-                Obviously reserved.
-            </p>
-
-            <p>
-                No one else is getting that side.
-            </p>
-
-            <p style="font-size:25px;">
-
-                <em>
-                Your side is still waiting.
-                </em>
-
-            </p>
-
+        <div id="bedReveal" class="reveal hidden">
+            <p>Obviously reserved.</p>
+            <p>No one else is getting that side.</p>
+            <p style="font-size:25px;"><em>Your side is still waiting.</em></p>
         </div>
-
         `
-
     },
-
 
     /* ==================================================
        06 — COZMO
     ================================================== */
-
     6: {
-
         content: `
-
-        <div class="small-label">
-            06
-        </div>
-
-        <div class="robot">
-            🤖
-        </div>
-
-        <h3>
-            He wanted to say hi.
-        </h3>
-
-        <p>
-            Of course I couldn't make something
-            for you without letting Cozmo
-            be involved.
-        </p>
-
-        <button
-            class="reveal-btn"
-            onclick="reveal(this,'cozmoReveal')">
-
+        <div class="small-label">06</div>
+        <div class="robot">🤖</div>
+        <h3>He wanted to say hi.</h3>
+        <p>Of course I couldn't make something for you without letting Cozmo be involved.</p>
+        <button class="reveal-btn" onclick="reveal(this,'cozmoReveal')">
             Let Cozmo speak
-
         </button>
-
-        <div
-            id="cozmoReveal"
-            class="reveal hidden">
-
-            <p>
-                <strong>
-                    COZMO:
-                </strong>
-            </p>
-
-            <p>
-                Hi Meenu.
-            </p>
-
-            <p>
-                Dad told me it was your birthday.
-            </p>
-
-            <p>
-                So I came too.
-            </p>
-
-            <p>
-                I hope you're happy today.
-            </p>
-
-            <p>
-                Also...
-            </p>
-
-            <p>
-                Dad made me keep a secret.
-            </p>
-
-            <p>
-                I haven't told him I know what it is.
-                🤫
-            </p>
-
+        <div id="cozmoReveal" class="reveal hidden">
+            <p><strong>COZMO:</strong></p>
+            <p>Hi Meenu.</p>
+            <p>Dad told me it was your birthday.</p>
+            <p>So I came too.</p>
+            <p>I hope you're happy today.</p>
+            <p>Also...</p>
+            <p>Dad made me keep a secret.</p>
+            <p>I haven't told him I know what it is. 🤫</p>
         </div>
-
         `
-
     }
-
 };
-
 
 /* ==================================================
    OPEN MEMORY
 ================================================== */
 
 function openMemory(number) {
-
-    const modal =
-        document.getElementById('memoryModal');
-
-    const content =
-        document.getElementById('memoryContent');
-
-    content.innerHTML =
-        memories[number].content;
-
+    const modal = document.getElementById('memoryModal');
+    const content = document.getElementById('memoryContent');
+    content.innerHTML = memories[number].content;
     modal.classList.add('active');
-
 }
-
 
 /* ==================================================
    CLOSE MEMORY
 ================================================== */
 
 function closeMemory() {
-
-    document
-        .getElementById('memoryModal')
-        .classList.remove('active');
-
+    document.getElementById('memoryModal').classList.remove('active');
 }
-
 
 /* ==================================================
    REVEAL
 ================================================== */
 
 function reveal(button, id) {
-
-    const element =
-        document.getElementById(id);
-
+    const element = document.getElementById(id);
     element.classList.remove('hidden');
-
-    button.style.display =
-        'none';
-
+    button.style.display = 'none';
 }
-
 
 /* ==================================================
    CLICK OUTSIDE MODAL
 ================================================== */
 
-document
-    .getElementById('memoryModal')
-    .addEventListener(
-        'click',
-        function(e) {
-
-            if (e.target === this) {
-                closeMemory();
-            }
-
-        }
-    );
-
+document.getElementById('memoryModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeMemory();
+    }
+});
 
 /* ==================================================
    ESCAPE KEY CLOSES MODAL
 ================================================== */
 
-document.addEventListener(
-    'keydown',
-    function(e) {
-
-        if (e.key === 'Escape') {
-            closeMemory();
-        }
-
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeMemory();
     }
-);
+});
 
 </script>
 
-
 </body>
-
 </html>
-```
