@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 
 <html lang="en">
@@ -75,18 +76,18 @@ button {
 }
 
 
-/* =========================
+/* ==================================================
    WELCOME
-========================= */
+================================================== */
 
 #welcome {
     text-align: center;
 }
 
 
-/* =========================
+/* ==================================================
    BIRTHDAY CAKE
-========================= */
+================================================== */
 
 .birthday-cake {
     width: 105px;
@@ -95,7 +96,7 @@ button {
     position: relative;
 }
 
-/* candle */
+/* Candle */
 .cake-candle {
     position: absolute;
     width: 8px;
@@ -108,7 +109,7 @@ button {
     box-shadow: 0 0 12px rgba(255,255,255,.8);
 }
 
-/* candle flame */
+/* Flame */
 .flame {
     position: absolute;
     width: 10px;
@@ -137,7 +138,7 @@ button {
 
 }
 
-/* top icing */
+/* Cake top icing */
 .cake-top {
     position: absolute;
     width: 65px;
@@ -149,7 +150,7 @@ button {
     box-shadow: 0 4px 12px rgba(80,65,80,.12);
 }
 
-/* cake */
+/* Cake body */
 .cake-body {
     position: absolute;
     width: 65px;
@@ -163,7 +164,7 @@ button {
         0 10px 25px rgba(70,50,60,.15);
 }
 
-/* little icing drops */
+/* Little icing drops */
 .cake-body::before {
     content: "";
     position: absolute;
@@ -201,7 +202,7 @@ button {
         );
 }
 
-/* plate */
+/* Cake plate */
 .cake-plate {
     position: absolute;
     width: 82px;
@@ -264,9 +265,9 @@ h1 {
 }
 
 
-/* =========================
+/* ==================================================
    POLAROIDS
-========================= */
+================================================== */
 
 .section-heading {
     text-align: center;
@@ -359,13 +360,12 @@ h1 {
 }
 
 
-/* =========================
+/* ==================================================
    MODAL
-========================= */
+================================================== */
 
 .modal {
     position: fixed;
-
     inset: 0;
 
     background:
@@ -473,9 +473,24 @@ h1 {
 }
 
 
-/* =========================
+/* ==================================================
+   SONG PLAYER
+================================================== */
+
+.song-player {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.song-player audio {
+    width: 100%;
+    display: block;
+}
+
+
+/* ==================================================
    FINAL
-========================= */
+================================================== */
 
 #final {
     text-align: center;
@@ -521,9 +536,9 @@ h1 {
 }
 
 
-/* =========================
+/* ==================================================
    COZMO
-========================= */
+================================================== */
 
 .robot {
     font-size:
@@ -551,9 +566,9 @@ h1 {
 }
 
 
-/* =========================
+/* ==================================================
    LETTER
-========================= */
+================================================== */
 
 .letter {
     max-width:
@@ -590,9 +605,9 @@ h1 {
 }
 
 
-/* =========================
+/* ==================================================
    MOBILE
-========================= */
+================================================== */
 
 @media(max-width:750px) {
 
@@ -652,6 +667,7 @@ h1 {
     class="screen active">
 
     <div class="container">
+
 
         <!-- Birthday Cake -->
 
@@ -1099,6 +1115,10 @@ function showScreen(id) {
 const memories = {
 
 
+    /* ==================================================
+       01 — MOON
+    ================================================== */
+
     1: {
 
         content: `
@@ -1162,6 +1182,10 @@ const memories = {
     },
 
 
+    /* ==================================================
+       02 — SONG
+    ================================================== */
+
     2: {
 
         content: `
@@ -1198,6 +1222,7 @@ const memories = {
             You already know this one.
         </p>
 
+
         <button
             class="reveal-btn"
             onclick="reveal(this,'songReveal')">
@@ -1205,6 +1230,7 @@ const memories = {
             Play / reveal
 
         </button>
+
 
         <div
             id="songReveal"
@@ -1223,12 +1249,35 @@ const memories = {
                 This one reminds me of you.
             </p>
 
+
+            <!-- SONG -->
+
+            <div class="song-player">
+
+                <audio
+                    controls
+                    preload="metadata">
+
+                    <source
+                        src="audio/song.mp3.mpeg"
+                        type="audio/mpeg">
+
+                    Your browser does not support audio playback.
+
+                </audio>
+
+            </div>
+
         </div>
 
         `
 
     },
 
+
+    /* ==================================================
+       03 — PURPLE & SUNFLOWER
+    ================================================== */
 
     3: {
 
@@ -1299,6 +1348,10 @@ const memories = {
     },
 
 
+    /* ==================================================
+       04 — NIGHT
+    ================================================== */
+
     4: {
 
         content: `
@@ -1352,6 +1405,10 @@ const memories = {
 
     },
 
+
+    /* ==================================================
+       05 — BED
+    ================================================== */
 
     5: {
 
@@ -1412,6 +1469,10 @@ const memories = {
     },
 
 
+    /* ==================================================
+       06 — COZMO
+    ================================================== */
+
     6: {
 
         content: `
@@ -1453,7 +1514,7 @@ const memories = {
             </p>
 
             <p>
-                Hi Mumma.
+                Hi Meenu.
             </p>
 
             <p>
@@ -1527,7 +1588,7 @@ function closeMemory() {
    REVEAL
 ================================================== */
 
-function reveal(button,id) {
+function reveal(button, id) {
 
     const element =
         document.getElementById(id);
@@ -1550,12 +1611,28 @@ document
         'click',
         function(e) {
 
-            if(e.target === this) {
+            if (e.target === this) {
                 closeMemory();
             }
 
         }
     );
+
+
+/* ==================================================
+   ESCAPE KEY CLOSES MODAL
+================================================== */
+
+document.addEventListener(
+    'keydown',
+    function(e) {
+
+        if (e.key === 'Escape') {
+            closeMemory();
+        }
+
+    }
+);
 
 </script>
 
@@ -1563,3 +1640,4 @@ document
 </body>
 
 </html>
+```
